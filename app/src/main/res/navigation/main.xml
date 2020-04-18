@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/main"
+            app:startDestination="@+id/homeScreen"
+            >
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="io.github.svagtlys.harper.ui.home.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/journalScreen"
+        android:name="io.github.svagtlys.harper.ui.journal.JournalFragment"
+        android:label="@string/journal"
+        tools:layout="@layout/fragment_journal" />
+
+    <fragment
+        android:id="@+id/alarmMasterScreen"
+        android:name="io.github.svagtlys.harper.ui.alarms.AlarmMasterFragment"
+        android:label="@string/alarms"
+        tools:layout="@layout/fragment_alarm_master" />
+
+</navigation>
