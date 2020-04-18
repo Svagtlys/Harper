@@ -4,7 +4,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/main"
             app:startDestination="@+id/homeScreen"
-            >
+    >
     <fragment
         android:id="@+id/homeScreen"
         android:name="io.github.svagtlys.harper.ui.home.HomeFragment"

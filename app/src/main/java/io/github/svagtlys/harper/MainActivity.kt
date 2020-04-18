@@ -11,6 +11,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.navigation.NavigationView
+import io.github.svagtlys.harper.ui.alarms.AlarmMasterFragment
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -59,7 +60,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if(drawerToggle.onOptionsItemSelected(item)){
             return true
         }
+
+//        Need to figure out how to add settings icon to action bar
+//        if(item.itemId == R.id.action_settings){
+//            Toast.makeText(this, "Settings!", Toast.LENGTH_SHORT)
+//            return true
+//        }
+
         return super.onOptionsItemSelected(item)
     }
+
+//    override fun onAttachFragment(fragment: Fragment) {
+//        if (fragment is HeadlinesFragment) {
+//            fragment.setOnHeadlineSelectedListener(this)
+//        }
+//    }
 
 }
