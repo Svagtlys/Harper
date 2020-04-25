@@ -23,4 +23,9 @@
         android:label="@string/alarms"
         tools:layout="@layout/fragment_alarm_master" />
 
+    <fragment
+        android:id="@+id/alarmAddScreen"
+        android:name="io.github.svagtlys.harper.ui.alarms.AlarmAddFragment"
+        tools:layout="@layout/fragment_alarm_add" />
+
 </navigation>

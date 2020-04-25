@@ -11,9 +11,10 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.navigation.NavigationView
+import io.github.svagtlys.harper.ui.alarms.AlarmAddFragment
 import io.github.svagtlys.harper.ui.alarms.AlarmMasterFragment
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, AlarmMasterFragment.AlarmMasterFragmentListener{
 
     private lateinit var drawerLayout : DrawerLayout
     private lateinit var navigationView : NavigationView
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         init()
     }
 
-//    Map nav graph (under res/navigation) with the DrawerLayour (activity_main) and navigationView
+//    Map nav graph (under res/navigation) with the DrawerLayout (activity_main) and navigationView
     private fun init() : Unit {
         var navController : NavController = Navigation.findNavController(this, R.id.nav_host_fragment_container)
 //        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
@@ -56,12 +57,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    //When FAB in AlarmMasterFragment is pressed, replace that fragment (in nav_host_fragment_container) with the AlarmAddFragment
+    //TODO: Be able to pass time (set in double clock in AlarmMasterFragment) to the created AlarmAddFragment
+    override fun onAddAlarmButtonClick() {
+        println("Switching fragments")
+        Navigation.findNavController(this, R.id.nav_host_fragment_container).navigate(R.id.alarmAddScreen)
+    }
+
+
+    //For Action bar options, WIP
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(drawerToggle.onOptionsItemSelected(item)){
             return true
         }
 
-//        Need to figure out how to add settings icon to action bar
+//        TODO: Need to figure out how to add settings icon to action bar
 //        if(item.itemId == R.id.action_settings){
 //            Toast.makeText(this, "Settings!", Toast.LENGTH_SHORT)
 //            return true
@@ -69,11 +79,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         return super.onOptionsItemSelected(item)
     }
-
-//    override fun onAttachFragment(fragment: Fragment) {
-//        if (fragment is HeadlinesFragment) {
-//            fragment.setOnHeadlineSelectedListener(this)
-//        }
-//    }
 
 }
